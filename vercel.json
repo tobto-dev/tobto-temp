@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/play1", "destination": "/play1/index.html" },
+    { "source": "/play1/", "destination": "/play1/index.html" },
+    { "source": "/yp-art-lnks", "destination": "/yp-art-lnks/index.html" },
+    { "source": "/yp-art-lnks/", "destination": "/yp-art-lnks/index.html" }
+  ]
+}
