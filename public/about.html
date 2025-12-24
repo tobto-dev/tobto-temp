@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>TOBTO - Clarity</title>
+<title>About TOBTO - Clarity</title>
 <meta name="description" content="Clarity for products in the age of AI." />
 
 <style>
@@ -34,7 +34,7 @@ background-color: rgba(0, 0, 0, 0.5);
 .header-inner {
   margin: 0 auto;
   height: 100%;
-
+line-height:1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,6 +47,7 @@ background-color: rgba(0, 0, 0, 0.5);
   }
 }
 
+
 .logo svg { display: block}
  a {
   display: inline-block;
@@ -56,7 +57,8 @@ a:hover {
   transform: translateY(-3px);
 }
 
-nav a{font-size:smaller}
+
+nav a{font-size:.8em}
 nav a, .phone a { color: #ddd; text-decoration: none;line-height:22px}
 
 /* ===== SCROLL SNAP CORE ===== */
@@ -81,7 +83,7 @@ section {
 
 .inner {
   max-width: 720px;
-  width: 100%;
+  width: 40em;
 }
 
 @media (min-width: 900px) {
@@ -156,6 +158,20 @@ summary {
   color: #000;
 }
 
+.photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 2rem auto;
+  opacity: 0;
+}
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* ===== FOOTER ===== */
 footer {
     position:absolute;
@@ -167,6 +183,7 @@ footer {
 }
 </style>
 </head>
+
 <body>
 <header>
   <div class="header-inner">
@@ -203,45 +220,46 @@ footer {
 </header>
 
 <main>
+  <!-- INTRO -->
+  <section>
+    <div class="inner">
+      <h1 class="fade">About Tobto</h1>
+      <p class="fade">
+        Behind the systems and interfaces, there’s a person focused on what makes sense — not what trends.
+      </p>
+      <div class="photo fade">
+        <img src="img/yp.jpg" alt="Yuri Polchenko — creator of TOBTO">
+      </div>
+    </div>
+  </section>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="inner">
-    <h1 class="reveal"><span class="word-clear">Clarity</span> for products in the age of AI</h1>
-    <p class="reveal">Signals, structure, and perception — without noise.</p>
-    <a class="cta" href="#contact">Start a conversation</a>
-  </div>
-</section>
+  <!-- STORY -->
+  <section>
+    <div class="inner">
+      <h2 class="fade">The clarity story</h2>
+      <p class="fade">
+        After years designing for startups and brands, I noticed where clarity breaks: 
+        when ideas slow down, design gets distorted, and communication loses focus.
+      </p>
+      <p class="fade">
+        TOBTO was created to fix that — to bring signal, structure, and meaning back into the digital space.
+      </p>
+    </div>
+  </section>
 
-<!-- SERVICES -->
-<section id="services">
-  <div class="inner">
-    <details>
-      <summary>Signal & process clarity</summary>
-      <p>Mapping what actually matters.</p>
-    </details>
+  <!-- APPROACH -->
+  <section>
+    <div class="inner">
+      <h2 class="fade">What we believe</h2>
+      <p class="fade">
+        Every pixel and process carries weight.  
+        Instead of adding more — we reduce noise until clarity appears.  
+        It’s not about decoration; it’s about direction.
+      </p>
+    </div>
+  </section>
 
-    <details>
-      <summary>Design & structure</summary>
-      <p>Interfaces and flows without distraction.</p>
-    </details>
-
-    <details>
-      <summary>Digital states</summary>
-      <p>Visual & sound environments for focus.</p>
-    </details>
-  </div>
-</section>
-
-<!-- WIDE STATE -->
-<section id="wave">
-  <div class="inner">
-    <h2 class="state">Uplifting Field</h2>
-    <p>A calm digital environment for attention.</p>
-  </div>
-</section>
-
-<!-- CONTACT -->
+ <!-- CONTACT -->
 <section id="contact">
   <div class="inner">
     <p>If this resonates — reach out.</p>
@@ -252,149 +270,21 @@ footer {
   </div>
 </section>
 </main>
-<footer>© 2025 TOBTO. All rights reserved.</footer> 
+
+<footer>© 2025 TOBTO. All rights reserved.</footer>
 
 <!-- ===== ANIME.JS ===== -->
 <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
 <script>
 window.addEventListener('load', () => {
-
-  /* =========================
-     1. LOAD: letters gather
-     ========================= */
-
   anime({
-    targets: '#logo .left-2',
-    translateX: [-260, 0],
-    opacity: [0, 1],
-    duration: 1600,
-    easing: 'easeOutExpo'
-  });
-
-  anime({
-    targets: '#logo .left-1',
-    translateX: [-140, 0],
-    opacity: [0, 1],
-    duration: 1600,
+    targets: '.fade',
+    opacity: [0,1],
+    translateY: [20,0],
     easing: 'easeOutExpo',
-    delay: 120
+    duration: 1000,
+    delay: anime.stagger(200)
   });
-
-  anime({
-    targets: '#logo .right-1',
-    translateX: [140, 0],
-    opacity: [0, 1],
-    duration: 1600,
-    easing: 'easeOutExpo',
-    delay: 120
-  });
-
-  anime({
-    targets: '#logo .right-2',
-    translateX: [260, 0],
-    opacity: [0, 1],
-    duration: 1600,
-    easing: 'easeOutExpo'
-  });
-
-  anime({
-    targets: '#logo .logo-center',
-    scale: [0.9, 1],
-    opacity: [0, 1],
-    duration: 1200,
-    easing: 'easeOutExpo',
-    delay: 300
-  });
-
-anime({
-  targets: '.reveal',
-  opacity: [0, 1],
-  translateY: [20, 0],
-  easing: 'easeOutExpo',
-  duration: 1200,
-  delay: 300
-});
-  /* =========================
-     2. HOVER: minimal spread
-     ========================= */
-
-  const logo = document.getElementById('logo');
-
-  logo.addEventListener('mouseenter', () => {
-    anime({
-      targets: '#logo .left-2',
-      translateX: -20,
-      duration: 400,
-      easing: 'easeOutQuad'
-    });
-    anime({
-      targets: '#logo .left-1',
-      translateX: -10,
-      duration: 400,
-      easing: 'easeOutQuad'
-    });
-    anime({
-      targets: '#logo .right-1',
-      translateX: 10,
-      duration: 400,
-      easing: 'easeOutQuad'
-    });
-    anime({
-      targets: '#logo .right-2',
-      translateX: 20,
-      duration: 400,
-      easing: 'easeOutQuad'
-    });
-  });
-
-  logo.addEventListener('mouseleave', () => {
-    anime({
-      targets: '#logo .logo-part',
-      translateX: 0,
-      duration: 500,
-      easing: 'easeOutExpo'
-    });
-  });
-
-
-  /* =========================
-     3. CLICK: short tighten
-     ========================= */
-
-  logo.addEventListener('click', () => {
-    anime({
-      targets: '#logo .logo-part',
-      scaleX: [1, 0.88, 1],
-      duration: 220,
-      easing: 'easeInOutQuad'
-    });
-  });
-
-/* WAVE */
-setTimeout(() => {
-  anime({
-    targets: '#wave .state',
-    opacity: [0, 1],
-    translateY: [12, 0],
-    duration: 1400,
-    easing: 'easeOutExpo'
-  });
-}, 400);
-
-  /* =========================
-     4. WORD "clear": blur → sharp
-     ========================= */
-
-  anime({
-    targets: '.word-clear',
-    filter: ['blur(28px)', 'blur(0px)'],
-    opacity: [0, 1],
-    translateY: [6, 0],
-    duration: 1300,
-    easing: 'easeOutCirc',
-    delay: 500
-  });
-
 });
 </script>
 </body>
