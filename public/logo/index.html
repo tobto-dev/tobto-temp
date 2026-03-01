@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Logo Designer - TOBTO</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Logo design, minimalist, modern from Y.P." />
+<style>
+:root {
+  --border-bottom: 1px solid #444;
+}
+* {
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+html {
+  -ms-scroll-snap-type: y mandatory;
+  scroll-snap-type: y mandatory;
+}
+body {
+  font: 500 .82rem/1.45rem sans-serif;
+  background: #000;
+  color: #fffffe;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ===== HEADER & LAYOUT (unchanged) ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+.header-inner {
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4rem;
+}
+@media (max-width: 768px) { .header-inner { padding: 0 1rem; } }
+.logo svg { display: block; }
+a { display: inline-block; transition: transform .3s ease; color: #1edeff; text-decoration: none; }
+a:hover { transform: translateY(-1px); }
+
+nav {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  width: 100%;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: var(--border-bottom);
+  z-index: 10;
+  font-size: 0.9rem;
+}
+
+.container {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: calc(100dvh - 100px);
+  display: flex;
+  overflow: hidden;
+}
+
+.left {
+  width: 50%;
+  height: 100%;
+  padding: .5vw;
+  position: relative;
+  overflow-y: auto;
+  font-size: clamp(0.9rem, 1.1vw, 1.15rem);
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+}
+.left h4 {
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  line-height: 1.25;
+  margin-bottom: 0.6em;
+}
+@media (max-width: 600px) {
+  .left { font: 500 13px/2em sans-serif; }
+  .left p { padding-top: 3em; }
+}
+.card {
+  height: 50%;
+  padding: 1em;
+  border-bottom: var(--border-bottom);
+}
+
+
+.right {
+  width: 50%;
+  height: 100%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+.right img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+.scroll-index {
+  position: sticky;
+  bottom: 12px;
+  left: 12px;
+  font-size: 12px;
+  color: #aaa;
+  z-index: 5;
+  pointer-events: none;
+  margin-left: 12px;
+}
+
+section {
+  height: 100vh;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+h1, h2, .links {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  width: 96%;
+  left: 0;
+  line-height: 1.2em;
+  font-size: calc(1rem + 3vw);
+}
+.links {
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+}
+ul {
+  display: inline-block;
+  text-align: left;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+li + li { margin-top: 1.8rem; }
+
+.line {
+ 
+  display: block;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(35px);
+
+  transition:
+    transform 1.5s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.6s ease-out;
+
+  transition-delay: calc(var(--i, 0) * 0.16s);
+  margin-bottom: 0.45em;
+}
+
+/* ===== ACTIVE ===== */
+.line.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+</style>
+</head>
+<body>
+
+<!-- Your full HTML structure unchanged -->
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <a href="index.html">
+        <svg id="logo" xmlns="http://www.w3.org/2000/svg" width="120" height="16" viewBox="0 0 126 16" style="fill:none;stroke:#D1D1D1;stroke-width:1.669;stroke-linecap:round;stroke-linejoin:round;">
+          <g class="logo-part left-2"><line x1="7.4" y1="1.6" x2="7.4" y2="13.4"/><line x1="13.4" y1="1.6" x2="1.4" y2="1.6"/></g>
+          <g class="logo-part left-1"><circle cx="35.2" cy="7.5" r="6"/></g>
+          <g class="logo-center"><rect x="57" y="1.5" width="12" height="12"/></g>
+          <g class="logo-part right-1"><line x1="90.8" y1="1.6" x2="90.8" y2="13.4"/><line x1="96.8" y1="1.6" x2="84.8" y2="1.6"/></g>
+          <g class="logo-part right-2"><circle cx="118.6" cy="7.5" r="6"/></g>
+        </svg>
+      </a>
+    </div>
+    <div class="phone">
+      <a href="viber://chat?number=%2B380631218792">+380 (63) 121-8791</a>
+    </div>
+  </div>
+  <nav><div>Art</div><div>Design</div><div>Music</div></nav>
+</header>
+
+<section class="first">
+  <div class="container">
+    <div class="left">
+      <div class="card">
+        <h4>Logo</h4>
+        <p class="line" style="--i:0">Order unique custom made logotype for your business, which works 24/7/365 in every environment.</p>
+      </div>
+      <div class="card">
+        <h4>Prices</h4>
+        <ul>
+          <li class="line" style="--i:0">$100 - 1 raster image, clear, PNG, 72dpi</li>
+          <li class="line" style="--i:1">$250 - 3 prototypes, 3 corrections, vector, AI, EPS, JPG, 300dpi</li>
+          <li class="line" style="--i:2">$600 - 10 prototypes, unlimited corrections, vector, AI, EPS, JPG, 300dpi, mockups.</li>
+        </ul>
+        <p class="line" style="--i:3"> From logos to systems — clarity scales.</p>
+      </div>
+    </div>
+    <div class="right">
+      <!-- images -->
+      <img src="img/abstrkt-audio-logo.png" alt="" />
+      <img src="img/arl-logo.png" alt="" />
+      <img src="img/arte-factual-logo.png" alt="" />
+      <img src="img/elite-real-estate-logo.png" alt="" />
+      <img src="img/exlr-logo.png" alt="" />
+      <img src="img/real-estate-logo.png" alt="" />
+      <img src="img/rema-logo.png" alt="" />
+      <img src="img/tylers-logo.png" alt="" />
+      <img src="img/waypoint-logo.png" alt="" />
+      <div class="scroll-index">01</div>
+    </div>
+  </div>
+</section>
+
+<section class="second">
+  <h2><span class="line" style="--i:0">Mail your inquiries to:<br />
+    <a class="line" style="--i:1" href="mailto:hello@tobto.org">hello@tobto.org</a>
+  </h2>
+</section>
+
+<section class="third">
+  <div class="links">
+    <ul>
+      <li class="line" style="--i:0"><a href="https://www.instagram.com/yp_minimal_logo/" rel="nofollow">Instagram</a></li>
+      <li class="line" style="--i:1"><a href="https://www.behance.net/tobto" rel="nofollow">Behance</a></li>
+      <li class="line" style="--i:2"><a href="http://dribbble.com/tobto" rel="nofollow">Dribbble</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script>
+// Logo animation (unchanged)
+window.addEventListener('load', () => {
+  anime({ targets: '#logo .left-2', translateX: [-260, 0], opacity: [0, 1], duration: 1600, easing: 'easeOutExpo' });
+  anime({ targets: '#logo .left-1', translateX: [-140, 0], opacity: [0, 1], duration: 1600, easing: 'easeOutExpo', delay: 120 });
+  anime({ targets: '#logo .right-1', translateX: [140, 0], opacity: [0, 1], duration: 1600, easing: 'easeOutExpo', delay: 120 });
+  anime({ targets: '#logo .right-2', translateX: [260, 0], opacity: [0, 1], duration: 1600, easing: 'easeOutExpo' });
+  anime({ targets: '#logo .logo-center', scale: [0.9, 1], opacity: [0, 1], duration: 1200, easing: 'easeOutExpo', delay: 300 });
+
+  const logo = document.getElementById('logo');
+  logo.addEventListener('mouseenter', () => {
+    anime({ targets: '#logo .left-2', translateX: -20, duration: 400, easing: 'easeOutQuad' });
+    anime({ targets: '#logo .left-1', translateX: -10, duration: 400, easing: 'easeOutQuad' });
+    anime({ targets: '#logo .right-1', translateX: 10, duration: 400, easing: 'easeOutQuad' });
+    anime({ targets: '#logo .right-2', translateX: 20, duration: 400, easing: 'easeOutQuad' });
+  });
+  logo.addEventListener('mouseleave', () => {
+    anime({ targets: '#logo .logo-part', translateX: 0, duration: 500, easing: 'easeOutExpo' });
+  });
+  logo.addEventListener('click', () => {
+    anime({ targets: '#logo .logo-part', scaleX: [1, 0.88, 1], duration: 220, easing: 'easeInOutQuad' });
+  });
+});
+</script>
+
+<!-- Smooth scroll & counter (unchanged) -->
+<script>
+const right = document.querySelector('.right');
+let current = 0, target = 0;
+const ease = 0.08;
+right.addEventListener('wheel', e => { e.preventDefault(); target += e.deltaY; target = Math.max(0, Math.min(target, right.scrollHeight - right.clientHeight)); }, { passive: false });
+function smoothScroll() { current += (target - current) * ease; right.scrollTop = current; requestAnimationFrame(smoothScroll); }
+smoothScroll();
+
+const images = document.querySelectorAll('.right img');
+const counter = document.querySelector('.scroll-index');
+right.addEventListener('scroll', () => {
+  let index = 0;
+  images.forEach((img, i) => {
+    const rect = img.getBoundingClientRect();
+    const containerRect = right.getBoundingClientRect();
+    if (rect.top < containerRect.bottom && rect.bottom > containerRect.top) index = i + 1;
+  });
+  counter.textContent = String(index).padStart(2, '0');
+});
+</script>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    entry.target.classList.toggle('visible', entry.isIntersecting);
+  });
+}, {
+  threshold: 0.15,
+  rootMargin: '0px 0px -20% 0px'
+});
+
+document.querySelectorAll('.line').forEach(line => observer.observe(line));
+</script>
+
+ 
+
+</body>
+</html>
