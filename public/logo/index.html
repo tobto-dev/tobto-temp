@@ -5,6 +5,11 @@
 <title>Logo Designer - TOBTO</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Logo design, minimalist, modern from Y.P." />
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" defer></script>
+<!-- Google tag (gtag.js) --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5F19QC5NN9"></script> 
+<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', 
+new Date()); gtag('config', 'G-5F19QC5NN9'); </script>
 <style>
 :root {
   --border-bottom: 1px solid #444;
@@ -106,6 +111,9 @@ nav {
   height: 100%;
   overflow-y: scroll;
   scroll-behavior: smooth;
+  overflow-x: auto;      /* horizontal scroll */
+  -webkit-overflow-scrolling: touch; /* smooth touch scroll */
+  white-space: nowrap;    /* keeps images in one line */
 }
 .right img {
   width: 100%;
@@ -177,12 +185,10 @@ li + li { margin-top: 1.8rem; }
 </style>
 </head>
 <body>
-
-<!-- Your full HTML structure unchanged -->
 <header>
   <div class="header-inner">
     <div class="logo">
-      <a href="index.html">
+      <a href="https://tobto.org">
         <svg id="logo" xmlns="http://www.w3.org/2000/svg" width="120" height="16" viewBox="0 0 126 16" style="fill:none;stroke:#D1D1D1;stroke-width:1.669;stroke-linecap:round;stroke-linejoin:round;">
           <g class="logo-part left-2"><line x1="7.4" y1="1.6" x2="7.4" y2="13.4"/><line x1="13.4" y1="1.6" x2="1.4" y2="1.6"/></g>
           <g class="logo-part left-1"><circle cx="35.2" cy="7.5" r="6"/></g>
@@ -196,7 +202,7 @@ li + li { margin-top: 1.8rem; }
       <a href="viber://chat?number=%2B380631218792">+380 (63) 121-8791</a>
     </div>
   </div>
-  <nav><div>Art</div><div>Design</div><div>Music</div></nav>
+  <nav><div><a href="https://tobto.org/gallery/">Art</a></div><div>Design</div><div>Music</div></nav>
 </header>
 
 <section class="first">
@@ -218,15 +224,15 @@ li + li { margin-top: 1.8rem; }
     </div>
     <div class="right">
       <!-- images -->
-      <img src="img/abstrkt-audio-logo.png" alt="" />
-      <img src="img/arl-logo.png" alt="" />
-      <img src="img/arte-factual-logo.png" alt="" />
-      <img src="img/elite-real-estate-logo.png" alt="" />
-      <img src="img/exlr-logo.png" alt="" />
-      <img src="img/real-estate-logo.png" alt="" />
-      <img src="img/rema-logo.png" alt="" />
-      <img src="img/tylers-logo.png" alt="" />
-      <img src="img/waypoint-logo.png" alt="" />
+      <img src="img/abstrkt-audio-logo.png" alt="Abstrkt, music producer, logo design" />
+      <img src="img/arl-logo.png" alt="Arl logo design by Y.P." />
+      <img src="img/arte-factual-logo.png" alt="Arte Factual, art objects photo, logo by Y.P." />
+      <img src="img/elite-real-estate-logo.png" alt="Elite Real Estate logo by Y.P." />
+      <img src="img/exlr-logo.png" alt="Exlr logo design by Y.P." />
+      <img src="img/real-estate-logo.png" alt="Real Estate logo design by Y.P." />
+      <img src="img/rema-logo.png" alt="Rema logo design by Y.P." />
+      <img src="img/tylers-logo.png" alt="Tylers logo design by Y.P." />
+      <img src="img/waypoint-logo.png" alt="Waypoint logo design by Y.P." />
       <div class="scroll-index">01</div>
     </div>
   </div>
@@ -249,7 +255,6 @@ li + li { margin-top: 1.8rem; }
 </section>
 
 <!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
 <script>
 // Logo animation (unchanged)
 window.addEventListener('load', () => {
