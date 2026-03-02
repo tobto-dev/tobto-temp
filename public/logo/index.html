@@ -105,16 +105,26 @@ nav {
   border-bottom: var(--border-bottom);
 }
 
-
 .right {
-  width: 50%;
+ width: 50%;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
   scroll-behavior: smooth;
-  overflow-x: auto;      /* horizontal scroll */
-  -webkit-overflow-scrolling: touch; /* smooth touch scroll */
-  white-space: nowrap;    /* keeps images in one line */
-}
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+
+ &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for Firefox */
+  scrollbar-width: none;
+
+  /* Hide scrollbar for IE and Edge */
+  -ms-overflow-style: none;
+  }
+ 
 .right img {
   width: 100%;
   aspect-ratio: 1 / 1;
