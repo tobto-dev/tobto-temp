@@ -106,29 +106,26 @@ nav {
 }
 
 .right {
- width: 50%;
+  width: 50%;
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  scroll-behavior: smooth;
+
   -webkit-overflow-scrolling: touch;
   touch-action: pan-y;
 
- &::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Hide scrollbar for Firefox */
   scrollbar-width: none;
-
-  /* Hide scrollbar for IE and Edge */
   -ms-overflow-style: none;
+}
+
+.right::-webkit-scrollbar {
+  display: none;
   }
  
 .right img {
   width: 100%;
   aspect-ratio: 1 / 1;
-  object-fit: cover;
+    object-fit: cover;
   display: block;
 }
 .scroll-index {
@@ -234,14 +231,14 @@ li + li { margin-top: 1.8rem; }
     </div>
     <div class="right">
       <!-- images -->
-      <img src="img/abstrkt-audio-logo.png" alt="Abstrkt, music producer, logo design" />
-      <img src="img/arl-logo.png" alt="Arl logo design by Y.P." />
-      <img src="img/arte-factual-logo.png" alt="Arte Factual, art objects photo, logo by Y.P." />
-      <img src="img/elite-real-estate-logo.png" alt="Elite Real Estate logo by Y.P." />
-      <img src="img/exlr-logo.png" alt="Exlr logo design by Y.P." />
-      <img src="img/real-estate-logo.png" alt="Real Estate logo design by Y.P." />
-      <img src="img/rema-logo.png" alt="Rema logo design by Y.P." />
-      <img src="img/tylers-logo.png" alt="Tylers logo design by Y.P." />
+      <img src="img/abstrkt-audio-logo.png" alt="Abstrkt, music producer, logo design" loading="lazy" decoding="async">
+      <img src="img/arl-logo.png" alt="Arl logo design by Y.P." loading="lazy" decoding="async"/>
+      <img src="img/arte-factual-logo.png" alt="Arte Factual, art objects photo, logo by Y.P." loading="lazy" decoding="async"/>
+      <img src="img/elite-real-estate-logo.png" alt="Elite Real Estate logo by Y.P." loading="lazy" decoding="async"/>
+      <img src="img/exlr-logo.png" alt="Exlr logo design by Y.P." loading="lazy" decoding="async"/>
+      <img src="img/real-estate-logo.png" alt="Real Estate logo design by Y.P." loading="lazy" decoding="async"/>
+      <img src="img/rema-logo.png" alt="Rema logo design by Y.P." loading="lazy" decoding="async"/>
+      <img src="img/tylers-logo.png" alt="Tylers logo design by Y.P." loading="lazy" decoding="async"/>
       <img src="img/waypoint-logo.png" alt="Waypoint logo design by Y.P." />
       <div class="scroll-index">01</div>
     </div>
@@ -293,23 +290,27 @@ window.addEventListener('load', () => {
 <!-- Smooth scroll & counter (unchanged) -->
 <script>
 const right = document.querySelector('.right');
-let current = 0, target = 0;
-const ease = 0.08;
-right.addEventListener('wheel', e => { e.preventDefault(); target += e.deltaY; target = Math.max(0, Math.min(target, right.scrollHeight - right.clientHeight)); }, { passive: false });
-function smoothScroll() { current += (target - current) * ease; right.scrollTop = current; requestAnimationFrame(smoothScroll); }
-smoothScroll();
+const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 
-const images = document.querySelectorAll('.right img');
-const counter = document.querySelector('.scroll-index');
-right.addEventListener('scroll', () => {
-  let index = 0;
-  images.forEach((img, i) => {
-    const rect = img.getBoundingClientRect();
-    const containerRect = right.getBoundingClientRect();
-    if (rect.top < containerRect.bottom && rect.bottom > containerRect.top) index = i + 1;
-  });
-  counter.textContent = String(index).padStart(2, '0');
-});
+if (!isTouchDevice) {
+  // DESKTOP ONLY smooth scroll
+  let current = 0, target = 0;
+  const ease = 0.08;
+
+  right.addEventListener('wheel', e => {
+    e.preventDefault();
+    target += e.deltaY;
+    target = Math.max(0, Math.min(target, right.scrollHeight - right.clientHeight));
+  }, { passive: false });
+
+  function smoothScroll() {
+    current += (target - current) * ease;
+    right.scrollTop = current;
+    requestAnimationFrame(smoothScroll);
+  }
+
+  smoothScroll();
+}
 </script>
 
 <script>
@@ -326,6 +327,5 @@ document.querySelectorAll('.line').forEach(line => observer.observe(line));
 </script>
 
  
-
 </body>
 </html>
