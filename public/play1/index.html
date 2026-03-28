@@ -2,9 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Buy This Music! Support Artist. TOBTO Believing</title>
+    <title>Believing – Instrumental Electronic Music from Ukraine | TOBTO</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Buy directly from the artist! Believing is an instrumental music from Ukraine" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Inter:wght@400;900&display=swap" rel="stylesheet">
 
     <style>
       * {
@@ -23,25 +24,30 @@
       }
 
       body {
-        background: #1edeff;
-        background: -webkit-radial-gradient(
-          top right,
-          #1edeff,
-          hsl(269, 76%, 50%)
-        );
-        background: -moz-radial-gradient(top right, #1edeff, #8130d8);
-        background: radial-gradient(to bottom left, #1edeff, #8537d8);
+        font-family: 'Inter', sans-serif; 
+        color: #D1D1D1;
+        background: #212121;
         overflow-x: hidden;
       }
 
+      h1 { 
+      font-family: 'Space Grotesk', sans-serif; 
+      font-weight: 700; 
+      text-transform: uppercase; 
+      letter-spacing: -0.02em; }
+ 
+
       .logocontainer {
         position: fixed;
-        bottom: 10%;
-        left: 1em;
-        width:30%;
+        bottom: 20px;
+        left: 100px;
+        width:350px;
         z-index: 500;
         background: transparent;
-        
+        transform:rotate(-90deg);
+        transform-origin:left bottom;
+        opacity: .7;
+      
       }
 
       h1, .links {
@@ -57,19 +63,19 @@
 
         a, a:link, a:visited, 
         a:focus, a:hover, a:active {
-        color: #1edeff
+        color: #83a3a9
 }
 
       .buy h1 {
-        color: aquamarine;
+  
         z-index: 3;
       }
 
       .cover {
         z-index: 1;
         position: absolute;
-        top: 20%;
-        left: 45%;
+        top: 30%;
+        left: 40%;
         -moz-transform: rotate(8deg);
         -webkit-transform: rotate(8deg);
         -o-transform: rotate(8deg);
@@ -88,49 +94,69 @@
         text-align: center;
         position: relative;
       }
+
+      .manifesto h1{
+      font-size: calc(1rem + 2vw);
+      opacity: 0.9;
       
-      .links {
-          text-transform: uppercase;
-      }
+}
+      svg{ overflow:visible;}
       
       .links a{
           text-decoration: none;
       }
       
-      
-    </style>
+</style>
   </head>
   <body>
     <div class="logocontainer">
-      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:none;stroke:#000000;stroke-width:12.9668;stroke-linecap:round;stroke-linejoin:round;}
-</style>
-<circle id="XMLID_8_" class="st0" cx="58.5" cy="705.5" r="46.6"/>
-<circle id="XMLID_7_" class="st0" cx="58.4" cy="705.5" r="46.6"/>
-<rect id="XMLID_6_" x="12.3" y="435.8" class="st0" width="93.2" height="93.3"/>
-<circle id="XMLID_5_" class="st0" cx="58.6" cy="60.1" r="46.6"/>
-<g id="XMLID_14_">
-	<line id="XMLID_4_" class="st0" x1="13" y1="271.9" x2="104.6" y2="271.9"/>
-	<line id="XMLID_3_" class="st0" x1="13" y1="225.3" x2="13" y2="318.5"/>
-</g>
-<g id="XMLID_11_">
-	<line id="XMLID_2_" class="st0" x1="12.9" y1="939.3" x2="104.5" y2="939.3"/>
-	<line id="XMLID_1_" class="st0" x1="12.9" y1="892.7" x2="12.9" y2="986"/>
-</g>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 26"
+     fill="none" stroke="#D1D1D1" stroke-width="1.669"
+     stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- TOBTO -->
+  <g class="logo-part left-2">
+    <line x1="7.4" y1="1.6" x2="7.4" y2="13.4"/>
+    <line x1="13.4" y1="1.6" x2="1.4" y2="1.6"/>
+  </g>
+
+  <g class="logo-part left-1">
+    <circle cx="35.2" cy="7.5" r="6"/>
+  </g>
+
+  <g class="logo-center">
+    <rect x="57" y="1.5" width="12" height="12"/>
+  </g>
+
+  <g class="logo-part right-1">
+    <line x1="90.8" y1="1.6" x2="90.8" y2="13.4"/>
+    <line x1="96.8" y1="1.6" x2="84.8" y2="1.6"/>
+  </g>
+
+  <g class="logo-part right-2">
+    <circle cx="118.6" cy="7.5" r="6"/>
+  </g>
+
+  <!-- MUSIC -->
+  <g fill="#D1D1D1" stroke="none" stroke-width=".1">
+    <path d="M22.213 24.307v-2.997h.589l.83 2.318.854-2.318h.526v2.997h-.397V21.87l-.826 2.237h-.411l-.802-2.243v2.444h-.363z"/>
+    <path d="M43.935 21.311h.425v1.891c0 .301.056.52.167.657.111.137.288.206.531.206.238 0 .406-.065.505-.193.099-.129.149-.347.149-.655v-1.905h.372v1.899c0 .409-.084.707-.252.893-.168.186-.436.279-.803.279-.374 0-.65-.096-.828-.29-.178-.193-.267-.491-.267-.895v-1.887z"/>
+    <path d="M65.593 24.382c-.201 0-.458-.044-.772-.132v-.421c.338.157.615.235.832.235.167 0 .302-.044.404-.132.102-.088.153-.203.153-.346 0-.117-.034-.217-.1-.3-.067-.082-.19-.174-.369-.275l-.207-.12c-.255-.146-.435-.283-.539-.412s-.157-.279-.157-.45c0-.231.084-.421.251-.57.167-.149.381-.224.64-.224.231 0 .474.038.731.115v.389c-.316-.124-.551-.186-.706-.186-.147 0-.269.039-.364.118-.096.078-.144.177-.144.296 0 .1.035.188.105.265.07.077.198.169.385.276l.215.121c.259.147.44.286.543.417.102.131.154.288.154.472 0 .26-.096.47-.288.628-.192.158-.447.237-.764.237z"/>
+    <path d="M85.412 24.307v-2.997h.425v2.997h-.425z"/>
+    <path d="M106.065 24.382c-.466 0-.826-.137-1.079-.41-.254-.274-.381-.66-.381-1.161 0-.499.129-.887.388-1.162.258-.276.623-.413 1.092-.413.269 0 .583.044.944.132v.399c-.41-.142-.727-.213-.949-.213-.325 0-.577.11-.755.33-.178.22-.267.531-.267.931 0 .382.095.684.285.904.191.221.45.331.78.331.284 0 .587-.087.911-.261v.364c-.296.076-.619.152-.969.152z"/>
+  </g>
+
 </svg>
+
     </div>
 
-    <section class="first">
-      <!-- <a rel="nofollow" href="https://tobto.bandcamp.com/track/believing"
-        ><img class="cover" src="./tobto-believing-sm.jpg" alt="Tobto Music"
-      /></a> -->
+    <section class="first"> 
 
       <div class="buy">
-        <h1>BUY this music today!<br />
-          <a rel="nofollow" href="https://tobto.bandcamp.com/track/believing">Just $3!</a>
-          <!-- <span style="font-size:9px;color:#fff">CLICK THIS TRIANGLE</span> --></h1>
+        <h1>Listen to Believing</h1>
+        <h2>If you like it — support the artist.<br />
+          <a rel="nofollow" href="https://tobto.bandcamp.com/track/believing">Just $3!</a></h2>
+          <p>Instrumental electronic music from Ukraine.</p>
           
       </div>
       <div class="player cover">
@@ -146,16 +172,16 @@
     </section>
 
     <section class="second">
-      <h1>
-        We appreciate your support!<br />
-        PAYPAL: tobto1 @ gmail.com
+      <h1>Support independent music<br>
+PayPal</br>
+tobto1@gmail.com
       </h1>
     </section>
 
     <section class="third">
       <div class="links">
-          <a href="https://www.youtube.com/c/tobtomusic" rel="nofollow">Youtube</a><br>
-          <a href="https://open.spotify.com/artist/14t1a6iDwdhKVpY3P7QEQzb" rel="nofollow">Spotify</a><br>
+          <!-- <a href="https://www.youtube.com/c/tobtomusic" rel="nofollow">Youtube</a><br> -->
+          <a href="https://open.spotify.com/album/4MhiJQPxNBjMU60Robu5Vp" rel="nofollow">Spotify</a><br>
           <a href="https://music.apple.com/gh/artist/tobto/948360748" rel="nofollow">Apple</a><br>
           <a href="https://soundcloud.com/tobto/tracks" rel="nofollow">Soundcloud</a><br>
           <a href="https://twitter.com/TobtoMusic" rel="nofollow">Twitter</a><br>
@@ -163,10 +189,66 @@
           <a href="https://www.instagram.com/t_o_b_t_o/" rel="nofollow">Instagram</a>
       </div>
     </section>
+
+    <section class="manifesto">
+  <h1>
+    Less noise.<br>
+    More signal.<br>
+    Support independent music.
+  </h1>
+</section>
     
 <!-- Google tag (gtag.js) --> 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5F19QC5NN9"></script> 
 <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', 
 new Date()); gtag('config', 'G-5F19QC5NN9'); </script>
+
+<script loading="lazy" src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script>
+ document.addEventListener('DOMContentLoaded', () => {
+  const offsets = [0, 5, 12, 25, 50]; 
+scale: [1.1, .95,1], 
+  anime({    targets: '.logocontainer svg g',    
+  translateX: (el, i) => [offsets[i], 0], 
+ scale: [1.1, 1],    opacity: [0, 1],    easing: 'cubicBezier(0.22, 1, 0.36, 1)',    
+ duration: 3400,    
+ delay: anime.stagger(50)  
+    });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  const sections = document.querySelectorAll('section');
+  let lastTrigger = 0;
+
+  function breatheLogo() {
+    const now = Date.now();
+    if (now - lastTrigger < 800) return;
+
+    lastTrigger = now;
+
+    anime({
+      targets: '.logocontainer svg',
+      scale: [.99, 1.01, 1],
+      duration: 700,
+      easing: 'easeInOutSine'
+    });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        breatheLogo();
+      }
+    });
+  }, {
+    threshold: 0.6
+  });
+
+  sections.forEach(section => observer.observe(section));
+
+});
+</script>
   </body>
 </html>
