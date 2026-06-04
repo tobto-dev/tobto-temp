@@ -2,8 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://tobto.org/gallery/index.php</loc>
-    <image:image>
+    <loc>https://tobto.org/gallery/index. html</loc>
+  <loc>https://tobto.org/gallery/index-ua. html</loc> <image:image>
       <image:loc>https://tobto.org/gallery/img/yuri-polchenko-sign170x100.png</image:loc>
     </image:image>
      <image:image>
