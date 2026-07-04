@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout pageType="sub">
+
+<section class="hero">
+  <h1>TOBTO Identity System</h1>
+  <p>Modular brand structure for design, music and voice</p>
+</section>
+
+<section class="demo">
+  <!-- твій SVG -->
+  <svg id="logo" xmlns="http://www.w3.org/2000/svg" width="160" viewBox="0 0 126 16">
+    <g class="logo-part left-2">
+      <line x1="7.4" y1="1.6" x2="7.4" y2="13.4"/>
+      <line x1="13.4" y1="1.6" x2="1.4" y2="1.6"/>
+    </g>
+
+    <g class="logo-part left-1">
+      <circle cx="35.2" cy="7.5" r="6"/>
+    </g>
+
+    <g class="logo-center">
+      <rect x="57" y="1.5" width="12" height="12"/>
+    </g>
+
+    <g class="logo-part right-1">
+      <line x1="90.8" y1="1.6" x2="90.8" y2="13.4"/>
+      <line x1="96.8" y1="1.6" x2="84.8" y2="1.6"/>
+    </g>
+
+    <g class="logo-part right-2">
+      <circle cx="118.6" cy="7.5" r="6"/>
+    </g>
+  </svg>
+</section>
+
+<section class="rules">
+  <h2>Logo System</h2>
+
+  <ul>
+    <li>Home → horizontal TOBTO</li>
+    <li>Subpages → vertical identity (design / art / music)</li>
+    <li>Logo reacts to interaction, not static display</li>
+  </ul>
+</section>
+
+<section class="behavior">
+  <h2>Behavior</h2>
+
+  <p>Hover → stretch</p>
+  <p>Click → compress</p>
+  <p>Scroll → breathing motion</p>
+</section>
+
+</Layout>
+
+<style>
+section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 2rem;
+}
+
+.demo {
+  display: flex;
+  justify-content: center;
+  padding: 60px 0;
+}
+
+.rules, .behavior {
+  display: grid;
+  gap: 12px;
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+
+<script>
+window.addEventListener('load', () => {
+
+  anime({
+    targets: '#logo .logo-part',
+    translateX: (el, i) => [-80 + i*40, 0],
+    opacity: [0, 1],
+    duration: 1400,
+    easing: 'easeOutExpo'
+  });
+
+  const logo = document.getElementById('logo');
+
+  logo.addEventListener('mouseenter', () => {
+    anime({
+      targets: '#logo .logo-part',
+      translateX: (el, i) => i < 2 ? -15 : 15,
+      duration: 300
+    });
+  });
+
+  logo.addEventListener('mouseleave', () => {
+    anime({
+      targets: '#logo .logo-part',
+      translateX: 0,
+      duration: 400
+    });
+  });
+
+  logo.addEventListener('click', () => {
+    anime({
+      targets: '#logo .logo-part',
+      scaleX: [1, 0.9, 1],
+      duration: 200
+    });
+  });
+
+});
+</script>

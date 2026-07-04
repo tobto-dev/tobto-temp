@@ -1,0 +1,24 @@
+---
+import LogoSystem from "../components/LogoSystem.astro";
+
+const { pageType = "sub", brand = "design" } = Astro.props;
+---
+
+<html lang="uk">
+  <meta charset="UTF-8" />
+  <body>
+
+    {pageType === "home" && (
+      <LogoSystem type="home" />
+    )}
+
+    <main>
+      <slot />
+    </main>
+
+    {pageType !== "home" && (
+      <LogoSystem type="sub" brand={brand} />
+    )}
+
+  </body>
+</html>

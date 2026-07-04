@@ -1,0 +1,120 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout brand="design">
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Жіночий голос для реклами, кіно та брендів</h1>
+
+    <p class="sub">
+      Озвучка реклам, трейлерів, аудіокниг та презентацій
+    </p>
+
+    <div class="audio">
+      <audio controls>
+        <source src="/audio/demo1.mp3" type="audio/mpeg">
+      </audio>
+
+      <audio controls>
+        <source src="/audio/demo2.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+
+    <a href="mailto:info@tobto.org" class="cta">
+      Замовити озвучку
+    </a>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services">
+    <div>
+      <h2>Реклама</h2>
+      <p>TV, digital, соцмережі</p>
+    </div>
+
+    <div>
+      <h2>Трейлери / дубляж</h2>
+      <p>Кіно, серіали, відео</p>
+    </div>
+
+    <div>
+      <h2>Аудіокниги</h2>
+      <p>Художні та бізнес тексти</p>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing">
+    <div>
+      <h3>Рекламний ролик</h3>
+      <p>від 4000 грн</p>
+    </div>
+
+    <div>
+      <h3>Аудіокнига</h3>
+      <p>150 грн / сторінка</p>
+    </div>
+
+    <div>
+      <h3>Трейлер</h3>
+      <p>від 500 грн</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="contact">
+    <p>Напишіть:</p>
+    <a href="mailto:info@tobto.org">info@tobto.org</a>
+  </section>
+
+</Layout>
+
+<style>
+section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.sub {
+  opacity: 0.7;
+  margin-bottom: 30px;
+}
+
+.audio {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  border: 1px solid #111;
+  text-decoration: none;
+}
+
+.services {
+  display: grid;
+  gap: 30px;
+}
+
+.pricing {
+  display: grid;
+  gap: 20px;
+}
+
+.contact {
+  text-align: center;
+  opacity: 0.8;
+}
+</style>
