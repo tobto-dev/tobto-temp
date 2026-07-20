@@ -1,0 +1,41 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Tobto",
+  description = "Close to Beyond"
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8" />
+<meta name="viewport"
+      content="width=device-width, initial-scale=1" />
+
+<title>{title}</title>
+
+<meta
+name="description"
+content={description} />
+
+<meta
+name="color-scheme"
+content="dark" />
+
+</head>
+
+<body>
+
+<slot />
+
+</body>
+
+</html>
