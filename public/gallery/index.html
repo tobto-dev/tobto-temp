@@ -570,5 +570,35 @@ function activate() {
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5F19QC5NN9"></script> 
 <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', 
 new Date()); gtag('config', 'G-5F19QC5NN9'); </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const galleryLinks = document.querySelectorAll('div[id] a[href*="paintings/"]');
+
+  galleryLinks.forEach(link => {
+    link.addEventListener('click', function () {
+      const href = this.getAttribute('href');
+      if (!href) return;
+
+      const imageId = href.split('/').pop().replace(/\.[^/.]+$/, '');
+      const title = this.getAttribute('title') || 
+                    this.querySelector('img')?.getAttribute('alt') || 
+                    imageId;
+
+      const parentDiv = this.closest('div[id]');
+      const category = parentDiv ? parentDiv.id : 'gallery';
+
+      // Safely check gtag execution
+      if (typeof gtag === 'function') {
+        gtag('event', 'page_view', {
+          page_title: `${category.toUpperCase()} — ${title}`,
+          page_location: window.location.href,
+          page_path: `${window.location.pathname}#${category}/${imageId}`
+        });
+      }
+    });
+  });
+});
+</script>
   </body>
 </html>
