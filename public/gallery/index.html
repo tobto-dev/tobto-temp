@@ -571,34 +571,114 @@ function activate() {
 <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', 
 new Date()); gtag('config', 'G-5F19QC5NN9'); </script>
 
+<!-- Grok js v2 -->
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const galleryLinks = document.querySelectorAll('div[id] a[href*="paintings/"]');
+(function () {
+  var GALLERY_IDS = ['acryl', 'oil', 'watercolor', 'vector', 'shadows'];
+  var EVENT_PREFIX = 'gallery_image';
 
-  galleryLinks.forEach(link => {
-    link.addEventListener('click', function () {
-      const href = this.getAttribute('href');
-      if (!href) return;
+  // Stores the last viewed image per gallery so we can calculate duration
+  var lastView = {};   // { galleryId: { index, src, title, startTime } }
 
-      const imageId = href.split('/').pop().replace(/\.[^/.]+$/, '');
-      const title = this.getAttribute('title') || 
-                    this.querySelector('img')?.getAttribute('alt') || 
-                    imageId;
+  function sendEvent(action, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', EVENT_PREFIX + '_' + action, params);
+    }
+  }
 
-      const parentDiv = this.closest('div[id]');
-      const category = parentDiv ? parentDiv.id : 'gallery';
+  function getImageInfo(el, index) {
+    var links = el.querySelectorAll('a');
+    var item  = links[index];
+    if (!item) return { src: 'unknown', title: '', alt: '' };
 
-      // Safely check gtag execution
-      if (typeof gtag === 'function') {
-        gtag('event', 'page_view', {
-          page_title: `${category.toUpperCase()} — ${title}`,
-          page_location: window.location.href,
-          page_path: `${window.location.pathname}#${category}/${imageId}`
-        });
-      }
+    return {
+      src:   item.getAttribute('href') || 'unknown',
+      title: item.getAttribute('title') || '',
+      alt:   (item.querySelector('img') && item.querySelector('img').getAttribute('alt')) || ''
+    };
+  }
+
+  function trackDuration(galleryId) {
+    var prev = lastView[galleryId];
+    if (!prev) return;
+
+    var durationSec = Math.round((Date.now() - prev.startTime) / 1000);
+
+    // Only send if the user actually looked at it for a meaningful time
+    if (durationSec >= 1) {
+      sendEvent('duration', {
+        image_src:      prev.src,
+        image_title:    prev.title,
+        gallery_series: galleryId,
+        image_index:    prev.index,
+        duration_sec:   durationSec
+      });
+    }
+  }
+
+  GALLERY_IDS.forEach(function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+
+    // 1. Lightbox opened
+    el.addEventListener('onAfterOpen', function () {
+      var uid = el.getAttribute('lg-uid');
+      var instance = window.lgData && window.lgData[uid];
+      var index = (instance && typeof instance.index === 'number') ? instance.index : 0;
+      var info = getImageInfo(el, index);
+
+      // Record start time
+      lastView[id] = {
+        index: index,
+        src: info.src,
+        title: info.title,
+        startTime: Date.now()
+      };
+
+      sendEvent('open', {
+        image_src:      info.src,
+        image_title:    info.title,
+        image_alt:      info.alt,
+        gallery_series: id,
+        image_index:    index
+      });
+    });
+
+    // 2. User switched to another image
+    el.addEventListener('onAfterSlide', function (e) {
+      var detail = e.detail || {};
+      var index  = detail.index;
+      if (typeof index !== 'number') return;
+
+      // First send duration of the previous image
+      trackDuration(id);
+
+      // Then start timing the new image
+      var info = getImageInfo(el, index);
+      lastView[id] = {
+        index: index,
+        src: info.src,
+        title: info.title,
+        startTime: Date.now()
+      };
+
+      sendEvent('view', {
+        image_src:      info.src,
+        image_title:    info.title,
+        image_alt:      info.alt,
+        gallery_series: id,
+        image_index:    index,
+        prev_index:     detail.prevIndex
+      });
+    });
+
+    // 3. Lightbox closed → send final duration
+    el.addEventListener('onBeforeClose', function () {
+      trackDuration(id);
+      delete lastView[id];
     });
   });
-});
+})();
 </script>
   </body>
 </html>
