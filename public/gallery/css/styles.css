@@ -5,7 +5,7 @@ body
     padding: 1ch;
  	font:500 .86rem sans-serif; 
  	background: #28343b;
-	background: linear-gradient(to bottom, rgb(143, 143, 143) 0%, rgb(162, 162, 162) 93%);
+	color:#eee;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -58,6 +58,20 @@ Layout styles
      margin: 0 10% 2em;
      font-size: 1.5em;
  }
+
+details{
+	padding: 1em;
+  border: 1px solid #5f6e77;
+  border-radius: 10px;
+}
+
+details a, details a:link, details a:visited{
+	color:aquamarine
+}
+
+details a:hover{
+	color:rgb(94, 255, 177)
+}
 
 .story{
     padding-left:30%;
@@ -115,7 +129,7 @@ a.contact{
 	background-color: #8c8c8c;
     border: #404040;
 }
-
+ƒ
 .footer h5{
     margin-bottom:3em;
 }

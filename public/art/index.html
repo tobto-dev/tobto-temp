@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Art Against Aggression — Yu Polch | TOBTO</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Direct studio exchange: acquire original Ukrainian abstract art by Yu Polch and send 80% directly to UNITED24." />
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" defer></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5F19QC5NN9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-5F19QC5NN9');
+</script>
+<style>
+:root {
+  --border-bottom: 1px solid #444;
+  --accent: #1edeff;
+}
+* {
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+html {
+  -ms-scroll-snap-type: y mandatory;
+  scroll-snap-type: y mandatory;
+}
+body {
+  font: 500 0.85rem/1.55 system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #eee;
+  background: #000;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Mobile & Top Dropdown Menu */
+.top-menu {
+  position: relative;
+}
+.menu-btn {
+  background: rgba(0, 255, 255, 0.12);
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  color: var(--accent);
+  font-size: 22px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s;
+}
+.menu-btn:hover {
+  background: rgba(0, 255, 255, 0.22);
+  border-color: rgba(0, 255, 255, 0.45);
+}
+.menu-btn:active {
+  background: rgba(0, 255, 255, 0.45);
+}
+.menu-dropdown {
+  position: absolute;
+  right: 0;
+  top: 44px;
+  min-width: 150px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.menu-dropdown.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.menu-dropdown a {
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #111;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.menu-dropdown a:last-child {
+  border-bottom: none;
+}
+.menu-dropdown a:hover {
+  background: rgba(0, 255, 255, 0.18);
+  transform: none;
+}
+
+/* ===== HEADER & NAV ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+.header-inner {
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4rem;
+}
+@media (max-width: 768px) {
+  .header-inner { padding: 0 1rem; }
+}
+.logo svg { display: block; }
+
+a {
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.2s ease;
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  transform: translateY(-1px);
+}
+
+nav {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  width: 100%;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: var(--border-bottom);
+  z-index: 999;
+  font-size: 0.9rem;
+}
+nav a {
+  color: #666;
+}
+nav a:hover {
+  color: #ccc;
+}
+nav a.active {
+  color: #1edeff;
+  font-weight: 700;
+}
+
+/* ===== SECTIONS & CENTERED CONTENT ===== */
+section {
+  min-height: 100vh;
+  min-height: 100dvh;
+  scroll-snap-align: start;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 120px 1.5rem 3rem; /* clears fixed header + nav */
+  border-bottom: 1px solid #1c1c1c;
+}
+
+.section-inner {
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 0 0 0.5rem 0;
+  line-height: 1.1;
+  font-size: clamp(2rem, 5vw, 5.2rem);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  margin: 0 0 1.75rem 0;
+  line-height: 1.25;
+  font-size: clamp(1.1rem, 2.4vw, 2rem);
+  font-weight: 500;
+}
+
+p {
+  margin: 0 auto 1.2rem;
+  max-width: 56ch;
+  font-size: clamp(0.85rem, 1.3vw, 1.05rem);
+  line-height: 1.7;
+  color: #ccc;
+}
+
+p.meta {
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  margin-top: 1.5rem;
+}
+
+ol, ul {
+  display: inline-block;
+  text-align: left;
+  margin: 0 auto 1.75rem;
+  padding-left: 1.4rem;
+  max-width: 54ch;
+  font-size: clamp(0.85rem, 1.3vw, 1.05rem);
+  line-height: 1.7;
+  color: #ddd;
+}
+ul {
+  list-style: none;
+  padding-left: 0;
+  text-align: center;
+}
+li + li {
+  margin-top: 0.9rem;
+}
+
+/* Line reveal animation */
+.line {
+  display: block;
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.6s ease-out;
+  transition-delay: calc(var(--i, 0) * 0.14s);
+}
+.line.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gemini Background */
+
+section.first {
+  overflow: hidden;
+  width: 100%;
+}
+
+#grid32 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(32, 1fr);
+  grid-auto-rows: auto;
+  z-index: 0;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.45) 15%, rgba(0, 0, 0, 1) 75%);
+  mask-image: radial-gradient(circle at 50% 50%, rgba(60, 60, 60, 0.45) 15%, rgba(0, 0, 0, 1) 75%);
+}
+
+#grid32 .cell {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  background: none;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+#grid32 .cell.has-art {
+  opacity: 0.28;
+}
+
+section.first .section-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 780px;
+}
+
+/* / Gemini Background */
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <a href="https://tobto.org">
+        <svg id="logo" xmlns="http://www.w3.org/2000/svg" width="120" height="16" viewBox="0 0 126 16" style="fill:none;stroke:#D1D1D1;stroke-width:1.669;stroke-linecap:round;stroke-linejoin:round;">
+          <g class="logo-part left-2"><line x1="7.4" y1="1.6" x2="7.4" y2="13.4"/><line x1="13.4" y1="1.6" x2="1.4" y2="1.6"/></g>
+          <g class="logo-part left-1"><circle cx="35.2" cy="7.5" r="6"/></g>
+          <g class="logo-center"><rect x="57" y="1.5" width="12" height="12"/></g>
+          <g class="logo-part right-1"><line x1="90.8" y1="1.6" x2="90.8" y2="13.4"/><line x1="96.8" y1="1.6" x2="84.8" y2="1.6"/></g>
+          <g class="logo-part right-2"><circle cx="118.6" cy="7.5" r="6"/></g>
+        </svg>
+      </a>
+    </div>
+    <div class="top-menu">
+      <button class="menu-btn" aria-label="Menu">☰</button>
+      <div class="menu-dropdown">
+        <a href="#reserve">Reserve</a>
+        <a href="https://viber.click/380631218791">Viber</a>
+        <a href="https://wa.me/380631218791">WhatsApp</a>
+        <a href="tel:+380631218791">Call</a>
+        <a href="mailto:art@tobto.org">Email</a>
+      </div>
+    </div>
+  </div>
+  <nav>
+    <div><a class="active" href="https://tobto.org/art/">Art</a></div>
+    <div><a href="https://tobto.org/logo/">Design</a></div>
+    <div><a href="https://tobto.org/music/">Music</a></div>
+  </nav>
+</header>
+
+<section class="first">
+  <div id="grid32" aria-hidden="true"></div>
+  <div class="section-inner">
+    <h1 class="line" style="--i:0">Art against aggression</h1>
+    <h2 class="line" style="--i:1">be on the right side of history</h2>
+    <p class="line" style="--i:2">
+      Pick an available original abstract work, such as
+      <a href="https://www.saatchiart.com/art/Painting-Trancy/674654/4235024/view" target="_blank" rel="noopener">Trancy ($825)</a>—or browse the full archive at
+      <a href="https://tobto.org/gallery/">tobto.org/gallery</a>.
+    </p>
+    <p class="meta line" style="--i:3">80% direct to UNITED24 · 20% + shipping to studio</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <h2 class="line" style="--i:0">How the exchange works</h2>
+    <ol>
+      <li class="line" style="--i:1">Message me first to reserve the piece and confirm shipping.</li>
+      <li class="line" style="--i:2">Donate 80% of the listed price directly to UNITED24 and send the receipt.</li>
+      <li class="line" style="--i:3">Cover 20% + shipping via a simple card / Apple Pay invoice.</li>
+      <li class="line" style="--i:4">Receive the original from Kyiv with a signed Certificate of Authenticity.</li>
+    </ol>
+    <p class="line" style="--i:5">No 40% gallery middleman. Just work turned into practical defense.</p>
+  </div>
+</section>
+
+<section id="reserve">
+  <div class="section-inner">
+    <h2 class="line" style="--i:0">Reserve a piece</h2>
+    <p class="line" style="--i:1">
+      Email <a href="mailto:art@tobto.org?subject=Art%20Reservation%20%E2%80%94%20UNITED24">art@tobto.org</a>
+      or DM on
+      <a href="https://x.com/YuPolch" target="_blank" rel="noopener">X</a> /
+      <a href="https://www.instagram.com/yupolch/" target="_blank" rel="noopener">Instagram</a>
+      with the artwork title and your country.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <h1>
+      <span class="line" style="--i:0">Less noise.</span>
+      <span class="line" style="--i:1">More signal.</span>
+      <span class="line" style="--i:2">Hold the line.</span>
+    </h1>
+  </div>
+</section>
+
+<!-- Scripts -->
+<script>
+window.addEventListener('load', () => {
+  anime({ targets: '#logo .left-2', translateX: [-260, 0], opacity: [0, 1], duration: 1600, easing: 'easeOutExpo' });
+  anime({ targets: '#logo .left-1', translateX: [-140, 0], opacity: [0, 1], duration: 1600, easing: 'easeOutExpo', delay: 120 });
+  anime({ targets: '#logo .right-1', translateX: [140, 0], opacity: [0, 1], duration: 1600, easing: 'easeOutExpo', delay: 120 });
+  anime({ targets: '#logo .right-2', translateX: [260, 0], opacity: [0, 1], duration: 1600, easing: 'easeOutExpo' });
+  anime({ targets: '#logo .logo-center', scale: [0.9, 1], opacity: [0, 1], duration: 1200, easing: 'easeOutExpo', delay: 300 });
+
+  const logo = document.getElementById('logo');
+  logo.addEventListener('mouseenter', () => {
+    anime({ targets: '#logo .left-2', translateX: -20, duration: 400, easing: 'easeOutQuad' });
+    anime({ targets: '#logo .left-1', translateX: -10, duration: 400, easing: 'easeOutQuad' });
+    anime({ targets: '#logo .right-1', translateX: 10, duration: 400, easing: 'easeOutQuad' });
+    anime({ targets: '#logo .right-2', translateX: 20, duration: 400, easing: 'easeOutQuad' });
+  });
+  logo.addEventListener('mouseleave', () => {
+    anime({ targets: '#logo .logo-part', translateX: 0, duration: 500, easing: 'easeOutExpo' });
+  });
+  logo.addEventListener('click', () => {
+    anime({ targets: '#logo .logo-part', scaleX: [1, 0.88, 1], duration: 220, easing: 'easeInOutQuad' });
+  });
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    entry.target.classList.toggle('visible', entry.isIntersecting);
+  });
+}, {
+  threshold: 0.15,
+  rootMargin: '0px 0px -10% 0px'
+});
+document.querySelectorAll('.line').forEach(line => observer.observe(line));
+
+const btn = document.querySelector('.menu-btn');
+const dropdown = document.querySelector('.menu-dropdown');
+
+function openMenu() {
+  dropdown.classList.add('open');
+  anime({
+    targets: '.menu-dropdown.open a',
+    opacity: [0, 1],
+    translateY: [6, 0],
+    delay: anime.stagger(55),
+    duration: 260,
+    easing: 'easeOutQuad'
+  });
+}
+
+function closeMenu() {
+  dropdown.classList.remove('open');
+}
+
+btn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  dropdown.classList.contains('open') ? closeMenu() : openMenu();
+});
+
+document.addEventListener('click', (e) => {
+  if (!dropdown.contains(e.target) && !btn.contains(e.target)) {
+    closeMenu();
+  }
+});
+
+//  * * * * * * * * Claude Script for background
+
+(() => {
+  const COLS = 32;
+  const FILE_COUNT = 15;
+  const baseUrl = window.location.hostname.includes('tobto.org')
+    ? '/gallery/paintings/'
+    : 'https://tobto.org/gallery/paintings/';
+
+  const allFiles = Array.from({ length: FILE_COUNT }, (_, i) => `yp-${i + 1}t.jpg`);
+
+  // Preload once; keep only files that really load.
+  let preloadPromise = null;
+  function preload() {
+    if (!preloadPromise) {
+      preloadPromise = Promise.all(
+        allFiles.map(
+          (file) =>
+            new Promise((resolve) => {
+              const img = new Image();
+              img.onload = () => resolve(file);
+              img.onerror = () => {
+                console.warn('Cannot load:', baseUrl + file);
+                resolve(null);
+              };
+              img.src = baseUrl + file;
+            })
+        )
+      ).then((list) => list.filter(Boolean));
+    }
+    return preloadPromise;
+  }
+
+  let stopCurrent = null;
+
+  async function runGridSparks() {
+    if (stopCurrent) stopCurrent();
+
+    const grid = document.getElementById('grid32');
+    if (!grid) return;
+
+    const files = await preload();
+    if (!files.length) {
+      console.error('grid32: no images could be loaded, check baseUrl and file names');
+      return;
+    }
+
+    let destroyed = false;
+    let timerId = null;
+    const running = new Set();
+
+    stopCurrent = () => {
+      destroyed = true;
+      clearTimeout(timerId);
+      running.forEach((a) => a.cancel());
+      running.clear();
+    };
+
+    const section = grid.closest('section') || grid.parentElement;
+    const width = grid.clientWidth || (section && section.clientWidth) || window.innerWidth;
+    const height = grid.clientHeight || (section && section.clientHeight) || window.innerHeight;
+
+    const cellSize = Math.max(12, Math.floor(width / COLS));
+    const rows = Math.max(12, Math.ceil(height / cellSize) + 2);
+    const totalCells = COLS * rows;
+
+    grid.style.display = 'grid';
+    grid.style.gridTemplateColumns = `repeat(${COLS}, ${cellSize}px)`;
+    grid.style.gridAutoRows = `${cellSize}px`;
+
+    const frag = document.createDocumentFragment();
+    const cells = [];
+
+    for (let i = 0; i < totalCells; i++) {
+      const cell = document.createElement('div');
+      cell.className = 'cell';
+      cell.style.background = 'none'; // no CSS background: cell is empty until a burst
+      cell.style.backgroundSize = 'cover';
+      cell.style.backgroundPosition = 'center';
+      cell.style.backgroundRepeat = 'no-repeat';
+      cell.style.opacity = '0';
+      frag.appendChild(cell);
+      cells.push(cell);
+    }
+    grid.replaceChildren(frag);
+
+    // Shuffled "deck": every image is used once before any repeats.
+    let deck = [];
+    let lastFile = '';
+    function nextFile() {
+      if (!deck.length) {
+        deck = files.slice();
+        for (let i = deck.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [deck[i], deck[j]] = [deck[j], deck[i]];
+        }
+        if (deck.length > 1 && deck[deck.length - 1] === lastFile) {
+          const k = Math.floor(Math.random() * (deck.length - 1));
+          [deck[deck.length - 1], deck[k]] = [deck[k], deck[deck.length - 1]];
+        }
+      }
+      lastFile = deck.pop();
+      return lastFile;
+    }
+
+    function spawnSparkBurst() {
+      if (destroyed) return;
+
+      const burstCount = Math.min(cells.length, 6 + Math.floor(Math.random() * 6));
+      const used = new Set();
+      const animations = [];
+
+      while (used.size < burstCount) {
+        const cell = cells[Math.floor(Math.random() * cells.length)];
+        if (used.has(cell)) continue;
+        used.add(cell);
+
+        // Image is already in the browser cache, so it shows instantly.
+        cell.style.backgroundImage = `url("${baseUrl}${nextFile()}")`;
+        cell.style.outline = '1px solid rgba(30, 222, 255, 0.55)';
+
+        const peak = 0.75 + Math.random() * 0.3;
+        const anim = cell.animate(
+          [
+            { opacity: 0, transform: 'scale(1)' },
+            { opacity: peak, transform: 'scale(0.97)', offset: 0.25 },
+            { opacity: 0, transform: 'scale(1)' }
+          ],
+          {
+            duration: 4500,
+            delay: Math.random() * 720,
+            easing: 'ease-out',
+            fill: 'both'
+          }
+        );
+        running.add(anim);
+        animations.push(anim);
+
+        anim.finished
+          .then(() => {
+            cell.style.backgroundImage = 'none';
+            cell.style.outline = '';
+            anim.cancel();
+          })
+          .catch(() => {}) // cancelled on resize
+          .finally(() => running.delete(anim));
+      }
+
+      Promise.allSettled(animations.map((a) => a.finished)).then(() => {
+        if (!destroyed) {
+          timerId = setTimeout(spawnSparkBurst, 350 + Math.floor(Math.random() * 500));
+        }
+      });
+    }
+
+    spawnSparkBurst();
+  }
+
+  // Register the resize listener ONCE.
+  let resizeTimer = null;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(runGridSparks, 200);
+  });
+
+  window.addEventListener('load', runGridSparks, { once: true });
+})();
+
+</script>
+</body>
+</html>
